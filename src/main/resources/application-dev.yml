@@ -1,0 +1,11 @@
+logging:
+  level:
+    root: info
+    com.hqjy.tiku.task: debug
+spring:
+  datasource:
+    url: jdbc:sqlserver://10.0.98.57;databasename=HQETS_PRE
+    username: sa
+    password: hqjy@@2018
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    type: com.alibaba.druid.pool.DruidDataSource
