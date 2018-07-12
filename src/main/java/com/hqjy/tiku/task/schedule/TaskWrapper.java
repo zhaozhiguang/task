@@ -99,10 +99,15 @@ public class TaskWrapper {
     }
 
     /**
-     * 执行的任务
+     * 执行任务函数接口
      */
     public interface Task {
+
+        /**
+         * 执行的任务
+         */
         void schedule();
+
     }
 
 }
