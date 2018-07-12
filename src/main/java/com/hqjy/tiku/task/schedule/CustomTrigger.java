@@ -40,16 +40,21 @@ public class CustomTrigger implements Trigger {
     public Date nextExecutionTime(TriggerContext triggerContext) {
         Date date = triggerContext.lastCompletionTime();
         if (date != null && !this.flag) {
-            Date scheduled = triggerContext.lastScheduledExecutionTime();
-            if (scheduled != null && date.before(scheduled)) {
-                date = scheduled;
-            }
-        }
-        else {
+            date = getDate(triggerContext, date);
+        } else {
             this.flag = false;
             date = new Date();
+            date = getDate(triggerContext, date);
         }
         return this.sequenceGenerator.next(date);
+    }
+
+    private Date getDate(TriggerContext triggerContext, Date date) {
+        Date scheduled = triggerContext.lastScheduledExecutionTime();
+        if (scheduled != null && date.before(scheduled)) {
+            date = scheduled;
+        }
+        return date;
     }
 
     @Override
