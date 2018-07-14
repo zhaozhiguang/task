@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.*;
         propOrder = {"_return"}
 )
 @XmlRootElement(
+        namespace = "http://stuArrang.webservice.hq.itf.nc/ITeacherStudent",
         name = "sendTeacherListResponse"
 )
 public class SendTeacherListResponse {
